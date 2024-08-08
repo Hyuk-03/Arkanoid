@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f101286baa43b5409864a2c82699232
+guid: 503a937e9a5f4e5409e8e1dcb357fc38
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,19 +69,6 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PaddleNormal_0
+      name: MSX MSX2 - Arkanoid MSX - Fields_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 40
-        width: 32
-        height: 8
+        y: 41
+        width: 192
+        height: 191
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,113 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41743e3633d1d494dbef45a12cc79267
-      internalID: -660492356
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PaddleNormal_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7756dcd1ae209274eab0fda2a71689a4
-      internalID: 294827293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PaddleNormal_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 32
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf5405eab782eb2459fcba00a4662d24
-      internalID: -2138117465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PaddleNormal_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 32
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03871ef499b7bd949a1b9b604aa2bc22
-      internalID: 1462383464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PaddleNormal_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 8
-        width: 32
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b498cd1cb792cda4ea778147e5461fae
-      internalID: -1503351076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PaddleNormal_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9f1b6766b13c6b438bf826e51ceabaf
-      internalID: -1818402869
+      spriteID: e65a50506055a4b4b92d3cf3cf0a27e4
+      internalID: -480385741
       vertices: []
       indices: 
       edges: []
@@ -259,12 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PaddleNormal_0: -660492356
-      PaddleNormal_1: 294827293
-      PaddleNormal_2: -2138117465
-      PaddleNormal_3: 1462383464
-      PaddleNormal_4: -1503351076
-      PaddleNormal_5: -1818402869
+      MSX MSX2 - Arkanoid MSX - Fields_0: -480385741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
