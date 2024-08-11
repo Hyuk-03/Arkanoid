@@ -6,7 +6,7 @@ using UnityEngine;
 public class BallCtrl : MonoBehaviour
 {
     //공의 이동
-    public float BallSpeed = 10.0f;      //공 이동 속도
+    public float BallSpeed = 7.0f;      //공 이동 속도
     Vector2 DirBall;                     //공의 이동방향
     bool isBall = false;                 //공이 패들에서 떨어졌나 판단
     float BallTimer = 0.0f;              //첫 시작시 볼을 발사하기 위한
@@ -16,7 +16,7 @@ public class BallCtrl : MonoBehaviour
     void Start()
     {
         DirBall = Vector2.up.normalized;  //초기 공 이동 방향 위로
-        BallTimer = 1.5f;               //시간 설정 
+        BallTimer = 1.5f;                 //시간 설정 
     }
 
     // Update is called once per frame
@@ -57,8 +57,6 @@ public class BallCtrl : MonoBehaviour
             float PaddleCenter = coll.transform.position.x;         //패들 중앙 x 좌표
             float Angle = (HitPoint - PaddleCenter) * 2;            //빼고 곱한다
             DirBall = new Vector2(Mathf.Sin(Angle), Mathf.Cos(Angle)).normalized;  //공이 날아가는.
-
-
 
         }
     }

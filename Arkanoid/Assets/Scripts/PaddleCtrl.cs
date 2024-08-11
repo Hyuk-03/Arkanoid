@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PaddleCtrl : MonoBehaviour
 {
     //패들의 이동
@@ -29,7 +30,7 @@ public class PaddleCtrl : MonoBehaviour
             if (PaddlePos != null)
             {
                 PaddlePos.x += h * MoveSpeed * Time.deltaTime;          //패들의 움직이기위해서
-                PaddlePos.x = Mathf.Clamp(PaddlePos.x, -3.52f, 3.52f);  //패들의 움직임 제한
+                PaddlePos.x = Mathf.Clamp(PaddlePos.x, -3.53f, 3.53f);  //패들의 움직임 제한
                 transform.position = PaddlePos;                         //위치 값 넣어주기
             }
 

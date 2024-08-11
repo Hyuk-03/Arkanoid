@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85656c01eb9bb284aa44fa2641b95e09
+guid: dfe9fbe410102384da6437927b7715d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,201 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_0
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 25
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 832f7b3a65c607b4a90df85d87ecc88c
-      internalID: 1302076612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 17
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 822bc2d40689fe0458e61d03fead329c
-      internalID: -1884534266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 17
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a94943d9639b976498924a5e4b48fc37
-      internalID: 20870477
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 25
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27f06e01c06f7ac4a83b53225654c50b
-      internalID: 266707665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 25
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d79d38fd77ab6e47a26fa73891efc1e
-      internalID: 1805363257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 17
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6da8b5c913e7044e94c5b2c61954c00
-      internalID: -739230673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 17
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5c3696a05acdd54db7f8a71c8ec1bbd
-      internalID: -333815100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 25
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fce8a3477726ac41923d870016a7c59
-      internalID: -1103906237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 9
-        width: 15
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69e972ee78ddc24428f035cb6c00df18
-      internalID: -1003947811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NES - Arkanoid - Blocks & Backgrounds_9
+      name: Blocks_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
+        width: 16
         height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -313,8 +124,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 330f0493ea5bd844a87d6aaa615b16b8
-      internalID: 1793114677
+      spriteID: b92e58f1f76f08045868417880f43dee
+      internalID: -781330583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3616c751c10ffbd40b7bf9dcff5f514f
+      internalID: -485031332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5165a82243fb0df41b5176597dde86a4
+      internalID: 1850895559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f1379593331de4a8590bd5f55c192e
+      internalID: 1496369946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae2d713e2f124748ba4b2be160dfdb8
+      internalID: 1211499506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cbd08a0442aa334c8d049eafaecd817
+      internalID: -208383113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_6
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e91bad44ed1bc499a6904915edc4e1
+      internalID: 197059049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocks_7
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b6e79cb84152b44b1d5e8908899b99
+      internalID: -272229778
       vertices: []
       indices: 
       edges: []
@@ -330,16 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NES - Arkanoid - Blocks & Backgrounds_0: 1302076612
-      NES - Arkanoid - Blocks & Backgrounds_1: -1884534266
-      NES - Arkanoid - Blocks & Backgrounds_2: 20870477
-      NES - Arkanoid - Blocks & Backgrounds_3: 266707665
-      NES - Arkanoid - Blocks & Backgrounds_4: 1805363257
-      NES - Arkanoid - Blocks & Backgrounds_5: -739230673
-      NES - Arkanoid - Blocks & Backgrounds_6: -333815100
-      NES - Arkanoid - Blocks & Backgrounds_7: -1103906237
-      NES - Arkanoid - Blocks & Backgrounds_8: -1003947811
-      NES - Arkanoid - Blocks & Backgrounds_9: 1793114677
+      Blocks_0: -781330583
+      Blocks_1: -485031332
+      Blocks_2: 1850895559
+      Blocks_3: 1496369946
+      Blocks_4: 1211499506
+      Blocks_5: -208383113
+      Blocks_6: 197059049
+      Blocks_7: -272229778
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
