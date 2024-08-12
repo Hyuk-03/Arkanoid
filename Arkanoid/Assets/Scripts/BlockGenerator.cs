@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class BlocksCtrl : MonoBehaviour
+public class BlockGenerator : MonoBehaviour
 {
     public GameObject BlockPrefab;     //프리팹
-    public Sprite[] Blocks;            //벽돌의 색깔.
+    public Sprite[] BlocksColor;       //벽돌의 색깔.
     [SerializeField] Vector2 Pos;      //벽돌 생성 시작 위치
     [SerializeField] Vector2 Offset;   //벽돌 간격
 
@@ -44,10 +44,14 @@ public class BlocksCtrl : MonoBehaviour
 
 
                 SpriteRenderer spriteRenderer = block.GetComponent<SpriteRenderer>();  // SpriteRenderer 가져오기, 화면에 그리기 위해서
-                if (spriteRenderer != null && Blocks.Length > 0)   //인덱스 설정
+                if (spriteRenderer != null && BlocksColor.Length > 0)   //인덱스 설정
                 {
-                   
-                    spriteRenderer.sprite = Blocks[Random.Range(0, Blocks.Length)];  // 랜덤 스프라이트 선택 및 설정 , 0인덱스~내가설정한길이.
+
+                    //spriteRenderer.sprite = BlocksColor[Random.Range(0, BlocksColor.Length)];  // 랜덤 스프라이트 선택 및 설정 , 0인덱스~내가설정한길이.
+
+                    // 각 행에 대해 색상을 순서대로 설정
+                    int colorIndex = i % BlocksColor.Length; // 색상 인덱스 결정
+                    spriteRenderer.sprite = BlocksColor[colorIndex]; // 색상 설정
                 }
 
 

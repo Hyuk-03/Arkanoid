@@ -183,7 +183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 776b3f6c8db8bab4a9c9729fad3d845a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlockPrefab: {fileID: 6909148005711585613, guid: 3a030fb9b683d9d40a8d530f7717794b, type: 3}
-  Blocks:
+  BlocksColor:
   - {fileID: -1003947811, guid: 85656c01eb9bb284aa44fa2641b95e09, type: 3}
   - {fileID: 1211499506, guid: dfe9fbe410102384da6437927b7715d5, type: 3}
   - {fileID: -272229778, guid: dfe9fbe410102384da6437927b7715d5, type: 3}

@@ -8,7 +8,7 @@ public class PaddleCtrl : MonoBehaviour
     //패들의 이동
     public float MoveSpeed = 10.0f;    //패들 이동 속도 변수
     float h = 0.0f;                    //키 입력 값 변수
-    Vector3 PaddlePos = Vector3.zero;  
+    Vector3 PaddlePos = Vector3.zero;  //패들의 변수
     //패들의 이동
 
     // Start is called before the first frame update
