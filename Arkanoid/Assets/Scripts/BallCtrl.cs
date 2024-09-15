@@ -14,7 +14,10 @@ public class BallCtrl : MonoBehaviour
     float MaxBallSpeed;         //공의 최대속도설정 변수
     //공의 이동
 
-   
+    GameObject Paddle;     //패들
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class BallCtrl : MonoBehaviour
         BallTimer = 1.5f;                 //시간 설정
         MaxBallSpeed = 10.0f;             //맥스속도
         BallSpeed = 6.0f;                 //공의 처음 속도
+        Paddle = GameObject.Find("Paddle");   //패들찾아옴
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class BallCtrl : MonoBehaviour
     {
         if(isBall == false)
         {
-            Vector3 PaddlePos = GameObject.Find("Paddle").transform.position;  //패들의 위치를 찾아옴
+            Vector3 PaddlePos = Paddle.transform.position;    //패들의 위치
 
             Vector3 BallPos = PaddlePos;  //공의 위치를 패들위치에
             BallPos.y = -3.22f;            //패들과 공 사이의 간격
@@ -95,7 +99,22 @@ public class BallCtrl : MonoBehaviour
                 Vector2 Out = Vector2.Reflect(In, Pos);
                 DirBall = Out;
             }
+        } 
+    }
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.gameObject.CompareTag("Out")==true)
+        {
+            //패들연출
+            Paddle.GetComponent<PaddleCtrl>().StartBreak();
+            StartCoroutine(RePlay());
         }
     }
 
+    IEnumerator RePlay()
+    {
+        yield return new WaitForSeconds(3.0f);  //3초대기
+        isBall = false;    //공이 패들에서 떨어지지 않는 상태
+        BallTimer = 1.5f;
+    }
 }
