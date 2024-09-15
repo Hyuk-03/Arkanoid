@@ -5,16 +5,19 @@ using UnityEngine;
 public class BlockCtrl : MonoBehaviour
 {
     public int Hp;  //블럭의 hp
+    int ScoreValue;
 
     void Start()
     {
         if (CompareTag("HardBlock"))
         {
             Hp = 2;  // 하드블럭의 Hp는 2로 설정
+            ScoreValue = 20;
         }
         else
         {
             Hp = 1;  // 기본 블럭의 Hp는 1로 설정
+            ScoreValue = 10;
         }
     }
 
@@ -30,6 +33,7 @@ public class BlockCtrl : MonoBehaviour
         if (Hp == 0)  // hp가 0일 때만 블록 삭제
         {
             StartCoroutine(Break());
+            GameMgr.Inst.AddScore(ScoreValue);
         }
 
     }
