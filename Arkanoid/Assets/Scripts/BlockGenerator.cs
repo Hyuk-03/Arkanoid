@@ -64,12 +64,12 @@ public class BlockGenerator : MonoBehaviour
 
                     if(i == 0)
                     {
-                        block.tag = "HardBlock";
+                        block.tag = "HardBlock";      //하드블럭태그설정
                         
                     }
                     else
                     {
-                        block.tag = "Block";
+                        block.tag = "Block";          //그외에는일반블럭
                     }
 
                 }

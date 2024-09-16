@@ -74,14 +74,14 @@ public class BallCtrl : MonoBehaviour
             BlockCtrl blockCtrl = coll.gameObject.GetComponent<BlockCtrl>();
             if (blockCtrl != null)
             {
-                blockCtrl.TakeDmg(1);
-              
-                Vector2 Pos = coll.contacts[0].normal;
+                blockCtrl.TakeDmg(1);                         //데미지
+                                                              //입사각
+                Vector2 Pos = coll.contacts[0].normal;        
                 Vector2 In = DirBall;
                 Vector2 Out = Vector2.Reflect(In, Pos);
-                DirBall = Out;
-
-                if (BallSpeed < MaxBallSpeed)
+                DirBall = Out;                                //반사각
+                
+                if (BallSpeed < MaxBallSpeed)                //블럭과 부딪히면 속도 증가
                 {
                     BallSpeed += 0.125f;
                 }
@@ -108,6 +108,8 @@ public class BallCtrl : MonoBehaviour
             //패들연출
             Paddle.GetComponent<PaddleCtrl>().StartBreak();
             StartCoroutine(RePlay());
+            //패들연출
+            GameMgr.Inst.LoseLife();
         }
     }
 
@@ -115,6 +117,6 @@ public class BallCtrl : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);  //3초대기
         isBall = false;    //공이 패들에서 떨어지지 않는 상태
-        BallTimer = 1.5f;
+        BallTimer = 1.5f;   //다시 시간 충전
     }
 }
