@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class GameMgr : MonoBehaviour
 {
-    //스코어 텍스트
+    [Header("스코어")]
     public Text ScoreText;   //스코어텍스트
     int Score;              //스코어
-    //스코어 텍스트
+    
 
     //목숨
     int MaxLife = 2;  //최대 목숨 개수
@@ -18,10 +18,16 @@ public class GameMgr : MonoBehaviour
     public Image[] Life;   //목숨 이미지배열
     //목숨
 
-    //게임오버
+    [Header("게임오버")]
     public GameObject GameOverPanel;
-    public Text ResultText;
-    //게임오버
+    public Text GameOverResultText;
+
+
+    [Header("게임클리어")]
+    public GameObject GameClearPanel;
+    public Text GameClearResultText;
+    private int TotalBlocks;          // 총 블록 수
+
 
     //싱글톤
     public static GameMgr Inst = null;
@@ -74,13 +80,34 @@ public class GameMgr : MonoBehaviour
                 GameOver();         // 게임 오버 처리
             }
         }
-
     }
+    public void SetTotalBlocks(int Count)
+    {
+        TotalBlocks = Count;       // 총 블록 수 설정
+    }
+
+    public void BlockDestroyed()
+    {
+        TotalBlocks--; // 블록이 파괴될 때마다 감소
+        if (TotalBlocks <= 0)
+        {
+            ClearPanel(); // 모든 블록이 파괴되면 클리어 판넬 표시
+        }
+    }
+
+    public void ClearPanel()
+    {
+        Time.timeScale = 0;   //일시정지
+        GameClearPanel.gameObject.SetActive(true);       //킨다
+        GameClearResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
+        
+    }
+
 
     void GameOver()
     {
         Time.timeScale = 0;            //일시정지
         GameOverPanel.gameObject.SetActive(true);         //킨다.
-        ResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
+        GameOverResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
     }
 }

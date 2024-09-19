@@ -40,7 +40,8 @@ public class BlockCtrl : MonoBehaviour
 
     IEnumerator Break()
     {
-        yield return new WaitForSeconds(0.1f);  
+        yield return new WaitForSeconds(0.1f);
+        GameMgr.Inst.BlockDestroyed();     // 블록 파괴 알림
         Destroy(gameObject);   //블럭삭제
     }
 

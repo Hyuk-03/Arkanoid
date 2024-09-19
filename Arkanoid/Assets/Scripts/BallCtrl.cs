@@ -16,8 +16,6 @@ public class BallCtrl : MonoBehaviour
 
     GameObject Paddle;     //패들
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +24,7 @@ public class BallCtrl : MonoBehaviour
         MaxBallSpeed = 10.0f;             //맥스속도
         BallSpeed = 6.0f;                 //공의 처음 속도
         Paddle = GameObject.Find("Paddle");   //패들찾아옴
+       
     }
 
     // Update is called once per frame
@@ -76,15 +75,16 @@ public class BallCtrl : MonoBehaviour
             {
                 blockCtrl.TakeDmg(1);                         //데미지
                                                               //입사각
-                Vector2 Pos = coll.contacts[0].normal;        
+                Vector2 Pos = coll.contacts[0].normal;
                 Vector2 In = DirBall;
                 Vector2 Out = Vector2.Reflect(In, Pos);
                 DirBall = Out;                                //반사각
-                
+
                 if (BallSpeed < MaxBallSpeed)                //블럭과 부딪히면 속도 증가
                 {
                     BallSpeed += 0.125f;
                 }
+
             }
         }
 
@@ -119,4 +119,5 @@ public class BallCtrl : MonoBehaviour
         isBall = false;    //공이 패들에서 떨어지지 않는 상태
         BallTimer = 1.5f;   //다시 시간 충전
     }
+
 }

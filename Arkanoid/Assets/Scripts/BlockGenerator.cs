@@ -72,6 +72,8 @@ public class BlockGenerator : MonoBehaviour
                         block.tag = "Block";          //그외에는일반블럭
                     }
 
+
+                    GameMgr.Inst.SetTotalBlocks(row * col);    //총블럭 업데이트
                 }
             }
         }

@@ -58,6 +58,5 @@ public class PaddleCtrl : MonoBehaviour
         yield return new WaitForSeconds(1.2f);  //1.2초 대기
         m_Anim.SetBool("Break", false);     //애니메이터의 break의 상태를 false로 변환 create 애니메이션 플레이
         isBreak = false;
-       
     }
 }
