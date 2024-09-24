@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -19,13 +20,14 @@ public class GameMgr : MonoBehaviour
     //목숨
 
     [Header("게임오버")]
-    public GameObject GameOverPanel;
-    public Text GameOverResultText;
+    public GameObject GameOverPanel;  //게임오버판넬
+    public Text GameOverResultText;   //게임오버결과
+    public bool isGameOver = false;    //게임오버체크하기위한
 
 
     [Header("게임클리어")]
-    public GameObject GameClearPanel;
-    public Text GameClearResultText;
+    public GameObject GameClearPanel;  //게임클리어판넬
+    public Text GameClearResultText;    //게임클리어결과
     private int TotalBlocks;          // 총 블록 수
 
 
@@ -48,7 +50,14 @@ public class GameMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isGameOver==true)
+        {
+            // 게임 오버 상태일 때 스페이스바 입력 체크
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("SampleScene"); // 씬 재시작
+            }
+        }
     }
 
     public void AddScore(int a_Value)
@@ -95,19 +104,21 @@ public class GameMgr : MonoBehaviour
         }
     }
 
-    public void ClearPanel()
+    void ClearPanel()
     {
-        Time.timeScale = 0;   //일시정지
         GameClearPanel.gameObject.SetActive(true);       //킨다
         GameClearResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
-        
     }
-
 
     void GameOver()
     {
-        Time.timeScale = 0;            //일시정지
+        isGameOver = true;
         GameOverPanel.gameObject.SetActive(true);         //킨다.
         GameOverResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
+        BlinkAnim m_BlinkAnim = gameObject.GetComponent<BlinkAnim>();
+        if (m_BlinkAnim != null)
+        {
+            m_BlinkAnim.enabled = true;
+        }
     }
 }

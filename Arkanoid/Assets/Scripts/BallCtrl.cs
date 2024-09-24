@@ -30,6 +30,9 @@ public class BallCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameMgr.Inst.isGameOver==true)  // 게임 오버상태라면 공을 못 움직이게 하기 위해서
+            return;
+            
         if(isBall == false)
         {
             Vector3 PaddlePos = Paddle.transform.position;    //패들의 위치
