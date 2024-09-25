@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,14 +24,13 @@ public class GameMgr : MonoBehaviour
     public GameObject GameOverPanel;  //게임오버판넬
     public Text GameOverResultText;   //게임오버결과
     public bool isGameOver = false;    //게임오버체크하기위한
-
-
+    
     [Header("게임클리어")]
     public GameObject GameClearPanel;  //게임클리어판넬
     public Text GameClearResultText;    //게임클리어결과
     private int TotalBlocks;          // 총 블록 수
-
-
+    public bool isGameClear = false;   //게임클리어체크하기 위한
+   
     //싱글톤
     public static GameMgr Inst = null;
     //싱글톤
@@ -47,6 +47,8 @@ public class GameMgr : MonoBehaviour
         UpdateLifeUI();                  //UI 업데이트
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -55,7 +57,16 @@ public class GameMgr : MonoBehaviour
             // 게임 오버 상태일 때 스페이스바 입력 체크
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("SampleScene"); // 씬 재시작
+                SceneManager.LoadScene("GameScene"); // 씬 재시작
+            }
+        }
+
+        if(isGameClear==true)
+        {
+            //게임클리어상태일때 스페이스파 입력
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("BossScene");  //보스 씬으로
             }
         }
     }
@@ -106,8 +117,14 @@ public class GameMgr : MonoBehaviour
 
     void ClearPanel()
     {
+        isGameClear = true;
         GameClearPanel.gameObject.SetActive(true);       //킨다
         GameClearResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
+        BlinkAnim m_BlinkAnim = gameObject.GetComponent<BlinkAnim>();
+        if (m_BlinkAnim != null)
+        {
+            m_BlinkAnim.enabled = true;
+        }
     }
 
     void GameOver()
