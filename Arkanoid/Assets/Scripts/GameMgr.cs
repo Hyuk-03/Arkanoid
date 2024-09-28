@@ -13,7 +13,6 @@ public class GameMgr : MonoBehaviour
     public Text ScoreText;   //스코어텍스트
     int Score;              //스코어
     
-
     //목숨
     int MaxLife = 2;  //최대 목숨 개수
     int CurLife;       //현재목숨
@@ -30,10 +29,12 @@ public class GameMgr : MonoBehaviour
     public Text GameClearResultText;    //게임클리어결과
     private int TotalBlocks;          // 총 블록 수
     public bool isGameClear = false;   //게임클리어체크하기 위한
-   
+
+
     //싱글톤
     public static GameMgr Inst = null;
     //싱글톤
+
 
     void Awake()
     {
@@ -68,6 +69,11 @@ public class GameMgr : MonoBehaviour
             {
                 SceneManager.LoadScene("BossScene");  //보스 씬으로
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("LobbyScene");
         }
     }
 
