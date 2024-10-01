@@ -109,13 +109,14 @@ public class BallCtrl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.gameObject.CompareTag("Out")==true)
+        if(coll.gameObject.CompareTag("Out")== true)
         {
             //패들연출
             Paddle.GetComponent<PaddleCtrl>().StartBreak();
             StartCoroutine(RePlay());
             //패들연출
             GameMgr.Inst.LoseLife();
+            
         }
     }
 

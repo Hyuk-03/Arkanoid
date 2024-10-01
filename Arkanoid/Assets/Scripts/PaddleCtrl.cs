@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -11,6 +10,7 @@ public class PaddleCtrl : MonoBehaviour
     float h = 0.0f;                    //키 입력 값 변수
     Vector3 PaddlePos = Vector3.zero;  //패들의 변수
     //패들의 이동
+
 
     //패들의 상태
     bool isBreak;   //부서진 상태
@@ -23,6 +23,7 @@ public class PaddleCtrl : MonoBehaviour
     {
         PaddlePos = transform.position; //패들의 현재 위치를 변수에 
         m_Anim = GetComponent<Animator>();  //패들 애니메이터 찾아옴
+       
     }
 
     
@@ -44,6 +45,21 @@ public class PaddleCtrl : MonoBehaviour
 
         }
         
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("Item"))
+        {
+            // 아이템을 먹었을 때 공의 속도를 재설정
+            BallCtrl ballCtrl = FindObjectOfType<BallCtrl>();
+            if (ballCtrl != null)
+            {
+                ballCtrl.BallSpeed = 6.0f;
+            }
+
+            Destroy(coll.gameObject); // 아이템 삭제
+        }
     }
 
     public void StartBreak()

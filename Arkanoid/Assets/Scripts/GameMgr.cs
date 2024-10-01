@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 
 public class GameMgr : MonoBehaviour
@@ -18,6 +17,10 @@ public class GameMgr : MonoBehaviour
     int CurLife;       //현재목숨
     public Image[] Life;   //목숨 이미지배열
     //목숨
+
+    //아이템
+    public GameObject ItemPrefab;
+    //아이템
 
     [Header("게임오버")]
     public GameObject GameOverPanel;  //게임오버판넬
@@ -34,8 +37,6 @@ public class GameMgr : MonoBehaviour
     //싱글톤
     public static GameMgr Inst = null;
     //싱글톤
-
-
     void Awake()
     {
         Inst = this;
@@ -118,6 +119,15 @@ public class GameMgr : MonoBehaviour
         if (TotalBlocks <= 0)
         {
             ClearPanel(); // 모든 블록이 파괴되면 클리어 판넬 표시
+        }
+    }
+
+    public void SpawnItem(Vector2 position)
+    {
+        
+        if (Random.value < 0.2f)                    // 20% 확률로 아이템 생성
+        {
+            Instantiate(ItemPrefab, position, Quaternion.identity);   //생성
         }
     }
 

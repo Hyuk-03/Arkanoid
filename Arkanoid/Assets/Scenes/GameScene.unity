@@ -504,7 +504,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.13
 --- !u!50 &175674569
 Rigidbody2D:
   serializedVersion: 4
@@ -578,6 +578,7 @@ MonoBehaviour:
   Life:
   - {fileID: 76425405}
   - {fileID: 1318958805}
+  ItemPrefab: {fileID: 6268499045504786433, guid: c0f00c966ddb1384da0bba0868b61f50, type: 3}
   GameOverPanel: {fileID: 535637205}
   GameOverResultText: {fileID: 1471401515}
   isGameOver: 0

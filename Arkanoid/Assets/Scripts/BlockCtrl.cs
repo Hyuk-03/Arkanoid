@@ -42,6 +42,9 @@ public class BlockCtrl : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         GameMgr.Inst.BlockDestroyed();     // 블록 파괴 알림
+
+        GameMgr.Inst.SpawnItem(transform.position);   //아이템 생성이 발동되는곳 
+
         Destroy(gameObject);   //블럭삭제
     }
 

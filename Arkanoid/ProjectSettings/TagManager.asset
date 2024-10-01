@@ -9,6 +9,7 @@ TagManager:
   - Block
   - HardBlock
   - Out
+  - Item
   layers:
   - Default
   - TransparentFX
