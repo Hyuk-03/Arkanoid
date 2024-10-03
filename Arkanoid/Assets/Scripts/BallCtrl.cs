@@ -116,7 +116,6 @@ public class BallCtrl : MonoBehaviour
             StartCoroutine(RePlay());
             //패들연출
             GameMgr.Inst.LoseLife();
-            
         }
     }
 

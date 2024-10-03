@@ -101,7 +101,11 @@ public class GameMgr : MonoBehaviour
         {
             CurLife--;                //깍는다
             UpdateLifeUI();
-
+            BallCtrl ballCtrl = FindObjectOfType<BallCtrl>();
+            if (ballCtrl != null)
+            {
+                ballCtrl.BallSpeed = 6.0f;
+            }
             if (CurLife <= -1)
             {
                 GameOver();         // 게임 오버 처리
@@ -125,7 +129,7 @@ public class GameMgr : MonoBehaviour
     public void SpawnItem(Vector2 position)
     {
         
-        if (Random.value < 0.2f)                    // 20% 확률로 아이템 생성
+        if (Random.value < 0.1f)                    // 10% 확률로 아이템 생성
         {
             Instantiate(ItemPrefab, position, Quaternion.identity);   //생성
         }
