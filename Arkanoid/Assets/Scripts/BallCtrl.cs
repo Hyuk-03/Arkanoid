@@ -36,7 +36,7 @@ public class BallCtrl : MonoBehaviour
         if (GameMgr.Inst.isGameClear == true) //게임 클리어상태라면 공을 못 움직이게 하기 위해서
             return;
 
-        if(isBall == false)
+        if (isBall == false)
         {
             Vector3 PaddlePos = Paddle.transform.position;    //패들의 위치
 

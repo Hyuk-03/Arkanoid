@@ -39,7 +39,15 @@ public class GameMgr : MonoBehaviour
     //싱글톤
     void Awake()
     {
-        Inst = this;
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않도록 설정
+        }
+        else
+        {
+            Destroy(gameObject); // 중복 인스턴스가 생성되는 것을 방지
+        }
     }
 
     // Start is called before the first frame update
@@ -68,7 +76,7 @@ public class GameMgr : MonoBehaviour
             //게임클리어상태일때 스페이스파 입력
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("BossScene");  //보스 씬으로
+                SceneManager.LoadScene("GameScene");  //다시 씬을 재시작하여 보스로 가게끔
             }
         }
 
@@ -132,6 +140,19 @@ public class GameMgr : MonoBehaviour
         if (Random.value < 0.1f)                    // 10% 확률로 아이템 생성
         {
             Instantiate(ItemPrefab, position, Quaternion.identity);   //생성
+        }
+    }
+    public void BossStart_BlockOff()
+    {
+        // 블록 제거 로직
+        foreach (GameObject Block in GameObject.FindGameObjectsWithTag("Block"))  //블럭 삭제
+        {
+            Destroy(Block);
+        }
+
+        foreach (GameObject HardBlock in GameObject.FindGameObjectsWithTag("HardBlock"))  //하드 블럭 삭제
+        {
+            Destroy(HardBlock);
         }
     }
 

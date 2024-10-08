@@ -18,14 +18,20 @@ public class BlockGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        CreateBlocks();
+        if(GameMgr.Inst.isGameClear == true)
+        {
+            GameMgr.Inst.BossStart_BlockOff();
+        }
+        else
+        {
+            CreateBlocks();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     void CreateBlocks()
@@ -78,5 +84,4 @@ public class BlockGenerator : MonoBehaviour
             }
         }
     }
-
 }
