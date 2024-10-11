@@ -9,8 +9,8 @@ public class BallCtrl : MonoBehaviour
     //공의 이동
     public float BallSpeed;       //공 이동 속도
     Vector2 DirBall;               //공의 이동방향
-    bool isBall = false;           //공이 패들에서 떨어졌나 판단
-    float BallTimer;              //첫 시작시 볼을 발사하기 위한
+    public bool isBall = false;           //공이 패들에서 떨어졌나 판단
+    public float BallTimer;              //첫 시작시 볼을 발사하기 위한
     float MaxBallSpeed;         //공의 최대속도설정 변수
     //공의 이동
 
@@ -30,7 +30,7 @@ public class BallCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameMgr.Inst.isGameOver==true)  // 게임 오버상태라면 공을 못 움직이게 하기 위해서
+        if (GameMgr.Inst.isGameOver == true)  // 게임 오버상태라면 공을 못 움직이게 하기 위해서
             return;
 
         if (GameMgr.Inst.isGameClear == true) //게임 클리어상태라면 공을 못 움직이게 하기 위해서

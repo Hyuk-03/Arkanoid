@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-
 public class GameMgr : MonoBehaviour
 {
     [Header("스코어")]
@@ -33,21 +31,13 @@ public class GameMgr : MonoBehaviour
     private int TotalBlocks;          // 총 블록 수
     public bool isGameClear = false;   //게임클리어체크하기 위한
 
-
     //싱글톤
     public static GameMgr Inst = null;
     //싱글톤
+
     void Awake()
     {
-        if (Inst == null)
-        {
-            Inst = this;
-            DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않도록 설정
-        }
-        else
-        {
-            Destroy(gameObject); // 중복 인스턴스가 생성되는 것을 방지
-        }
+        Inst = this;
     }
 
     // Start is called before the first frame update
@@ -55,6 +45,7 @@ public class GameMgr : MonoBehaviour
     {
         CurLife = MaxLife;               //현재목숨을 최대목숨이랑 같게
         UpdateLifeUI();                  //UI 업데이트
+        
     }
 
     
@@ -76,7 +67,7 @@ public class GameMgr : MonoBehaviour
             //게임클리어상태일때 스페이스파 입력
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("GameScene");  //다시 씬을 재시작하여 보스로 가게끔
+                SceneManager.LoadScene("BossScene");  //다시 씬을 재시작하여 보스로 가게끔
             }
         }
 
@@ -130,7 +121,8 @@ public class GameMgr : MonoBehaviour
         TotalBlocks--; // 블록이 파괴될 때마다 감소
         if (TotalBlocks <= 0)
         {
-            ClearPanel(); // 모든 블록이 파괴되면 클리어 판넬 표시
+            //ClearPanel(); // 모든 블록이 파괴되면 클리어 판넬 표시
+            StartCoroutine(SpawnBoss()); // 보스 스폰 함수 호출
         }
     }
 
@@ -142,18 +134,27 @@ public class GameMgr : MonoBehaviour
             Instantiate(ItemPrefab, position, Quaternion.identity);   //생성
         }
     }
-    public void BossStart_BlockOff()
+
+    private IEnumerator SpawnBoss()
     {
-        // 블록 제거 로직
-        foreach (GameObject Block in GameObject.FindGameObjectsWithTag("Block"))  //블럭 삭제
+        BallCtrl a_BallCtrl = FindObjectOfType<BallCtrl>();
+        if (a_BallCtrl != null)
         {
-            Destroy(Block);
+            a_BallCtrl.isBall = false;
+            a_BallCtrl.BallTimer = 2.5f;
         }
 
-        foreach (GameObject HardBlock in GameObject.FindGameObjectsWithTag("HardBlock"))  //하드 블럭 삭제
-        {
-            Destroy(HardBlock);
-        }
+        // 카메라 흔들림 효과 호출
+        yield return StartCoroutine(Camera.main.GetComponent<CameraShake>().Shake(1.0f, 0.05f)); // 흔들림 호출
+
+        yield return new WaitForSeconds(0.5f); // 흔들림 효과 대기 
+
+        //// 보스 생성
+        //GameObject boss = Instantiate(BossPrefab, new Vector3(0, 0, 10), Quaternion.identity); // 보스 생성 위치
+        //boss.GetComponent<BossController>().enabled = true; // 보스 스크립트 활성화
+        //게임오브젝트를 만들고(Bossspawn) 보스제레네이션 스크립트 달고 (보스오브젝트만들기)보스프리팹으로 만들고 
+        //보스 컨트롤 스크립트 만들고 보스 프리팹에 담
+        //보스의 체력은 10정도이고 공격패턴은 투사체 발사. 보스가 클리어 되면 게임클리어패널나오게 하면댐...
     }
 
     void ClearPanel()
@@ -179,4 +180,5 @@ public class GameMgr : MonoBehaviour
             m_BlinkAnim.enabled = true;
         }
     }
+
 }
