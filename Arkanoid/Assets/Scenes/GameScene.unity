@@ -587,6 +587,7 @@ MonoBehaviour:
   GameClearPanel: {fileID: 395612547}
   GameClearResultText: {fileID: 1962972041}
   isGameClear: 0
+  isBossClear: 0
 --- !u!4 &231892355
 Transform:
   m_ObjectHideFlags: 0
@@ -1705,7 +1706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 
 --- !u!222 &1471401516
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1890,6 +1891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8215fdf610a495a4ba5e18c5e6046d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossPrefab: {fileID: 692438524628067863, guid: 3a3352d72418ce94bb4b92cb2c8a95a9, type: 3}
 --- !u!4 &1598885151
 Transform:
   m_ObjectHideFlags: 0
@@ -2410,7 +2412,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Boss Space
+  m_Text: Lobby Space
 --- !u!222 &1963396501
 CanvasRenderer:
   m_ObjectHideFlags: 0

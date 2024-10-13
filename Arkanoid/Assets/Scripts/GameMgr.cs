@@ -30,6 +30,7 @@ public class GameMgr : MonoBehaviour
     public Text GameClearResultText;    //게임클리어결과
     private int TotalBlocks;          // 총 블록 수
     public bool isGameClear = false;   //게임클리어체크하기 위한
+    bool isBossClear = false;
 
     //싱글톤
     public static GameMgr Inst = null;
@@ -45,7 +46,6 @@ public class GameMgr : MonoBehaviour
     {
         CurLife = MaxLife;               //현재목숨을 최대목숨이랑 같게
         UpdateLifeUI();                  //UI 업데이트
-        
     }
 
     
@@ -58,7 +58,7 @@ public class GameMgr : MonoBehaviour
             // 게임 오버 상태일 때 스페이스바 입력 체크
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("GameScene"); // 씬 재시작
+                SceneManager.LoadScene("GameScene"); // 씬 재시작, 다시하기
             }
         }
 
@@ -67,13 +67,13 @@ public class GameMgr : MonoBehaviour
             //게임클리어상태일때 스페이스파 입력
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("BossScene");  //다시 씬을 재시작하여 보스로 가게끔
+                SceneManager.LoadScene("LobbyScene");  //다시 씬을 재시작하여 보스로 가게끔
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("LobbyScene");
+            SceneManager.LoadScene("LobbyScene");  //로비로
         }
     }
 
@@ -103,7 +103,7 @@ public class GameMgr : MonoBehaviour
             BallCtrl ballCtrl = FindObjectOfType<BallCtrl>();
             if (ballCtrl != null)
             {
-                ballCtrl.BallSpeed = 6.0f;
+                ballCtrl.BallSpeed = 6.0f;      //죽으면 공의 스피드 초기화
             }
             if (CurLife <= -1)
             {
@@ -119,16 +119,14 @@ public class GameMgr : MonoBehaviour
     public void BlockDestroyed()
     {
         TotalBlocks--; // 블록이 파괴될 때마다 감소
-        if (TotalBlocks <= 0)
+        if (TotalBlocks <= 0 )
         {
-            //ClearPanel(); // 모든 블록이 파괴되면 클리어 판넬 표시
             StartCoroutine(SpawnBoss()); // 보스 스폰 함수 호출
         }
     }
 
     public void SpawnItem(Vector2 position)
     {
-        
         if (Random.value < 0.1f)                    // 10% 확률로 아이템 생성
         {
             Instantiate(ItemPrefab, position, Quaternion.identity);   //생성
@@ -149,16 +147,30 @@ public class GameMgr : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f); // 흔들림 효과 대기 
 
-        //// 보스 생성
-        //GameObject boss = Instantiate(BossPrefab, new Vector3(0, 0, 10), Quaternion.identity); // 보스 생성 위치
-        //boss.GetComponent<BossController>().enabled = true; // 보스 스크립트 활성화
-        //게임오브젝트를 만들고(Bossspawn) 보스제레네이션 스크립트 달고 (보스오브젝트만들기)보스프리팹으로 만들고 
-        //보스 컨트롤 스크립트 만들고 보스 프리팹에 담
-        //보스의 체력은 10정도이고 공격패턴은 투사체 발사. 보스가 클리어 되면 게임클리어패널나오게 하면댐...
+        BossGenerator a_BossGenerator = FindObjectOfType<BossGenerator>();
+        if (a_BossGenerator != null)
+        {
+            a_BossGenerator.BossSpawn(new Vector2(0.5f, 1.7f));
+        }
+    }
+
+    void CheckGameClear()
+    {
+        if (TotalBlocks <= 0 && isBossClear)
+        {
+            ClearPanel(); // 클리어 판넬 표시
+        }
+    }
+
+    public void BossDie()
+    {
+        isBossClear = true;
+        CheckGameClear(); // 게임 클리어 체크
     }
 
     void ClearPanel()
     {
+        //if (!isGameClear)
         isGameClear = true;
         GameClearPanel.gameObject.SetActive(true);       //킨다
         GameClearResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경

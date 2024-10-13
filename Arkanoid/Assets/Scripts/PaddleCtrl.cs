@@ -23,7 +23,6 @@ public class PaddleCtrl : MonoBehaviour
     {
         PaddlePos = transform.position; //패들의 현재 위치를 변수에 
         m_Anim = GetComponent<Animator>();  //패들 애니메이터 찾아옴
-       
     }
 
     
@@ -55,7 +54,7 @@ public class PaddleCtrl : MonoBehaviour
             BallCtrl ballCtrl = FindObjectOfType<BallCtrl>();
             if (ballCtrl != null)
             {
-                ballCtrl.BallSpeed = 6.0f;
+                ballCtrl.BallSpeed = 6.0f;           //아이템을 먹으면 공의 스피드 6으로
             }
 
             Destroy(coll.gameObject); // 아이템 삭제

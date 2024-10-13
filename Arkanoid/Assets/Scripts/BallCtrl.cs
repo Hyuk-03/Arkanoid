@@ -105,7 +105,19 @@ public class BallCtrl : MonoBehaviour
                 Vector2 Out = Vector2.Reflect(In, Pos);
                 DirBall = Out;
             }
-        } 
+        }
+        else if(coll.gameObject.CompareTag("Boss")==true)
+        {
+            BossCtrl bossCtrl = coll.gameObject.GetComponent<BossCtrl>();
+            if (bossCtrl != null)
+            {
+                bossCtrl.TakeDmg(1);
+                Vector2 Pos = coll.contacts[0].normal;
+                Vector2 In = DirBall;
+                Vector2 Out = Vector2.Reflect(In, Pos);
+                DirBall = Out;
+            }
+        }
     }
     void OnTriggerEnter2D(Collider2D coll)
     {

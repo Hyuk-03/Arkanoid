@@ -16,7 +16,7 @@ public class ItemCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FallItem();
+        FallItem();                     //애니메이션계속진행
         transform.Translate(Vector2.down * FallSpeed * Time.deltaTime);  //아래로 내려오게 하는
     }
 
@@ -28,9 +28,9 @@ public class ItemCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("Out"))
+        if (coll.gameObject.CompareTag("Out"))   
         {
-            Destroy(gameObject);
+            Destroy(gameObject);            //먹지 못하면 아이템 삭제
         }  
     }
 }
