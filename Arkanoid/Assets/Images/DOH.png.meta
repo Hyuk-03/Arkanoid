@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,12 +126,12 @@ TextureImporter:
       name: DOH_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 102
-        width: 85
-        height: 122
+        x: 8
+        y: 104
+        width: 63
+        height: 113
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,13 +147,13 @@ TextureImporter:
       name: DOH_1
       rect:
         serializedVersion: 2
-        x: 85
-        y: 0
-        width: 85.333336
-        height: 224
+        x: 97
+        y: 104
+        width: 62
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 102, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -168,13 +168,13 @@ TextureImporter:
       name: DOH_2
       rect:
         serializedVersion: 2
-        x: 170
-        y: 0
-        width: 85.333336
-        height: 224
+        x: 185
+        y: 104
+        width: 62
+        height: 113
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 102, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
