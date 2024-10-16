@@ -162,15 +162,15 @@ public class GameMgr : MonoBehaviour
         }
     }
 
-    public void BossDie()
+    public void BossDie(int ScoreValue)
     {
         isBossClear = true;
+        AddScore(ScoreValue);
         CheckGameClear(); // 게임 클리어 체크
     }
 
     void ClearPanel()
     {
-        //if (!isGameClear)
         isGameClear = true;
         GameClearPanel.gameObject.SetActive(true);       //킨다
         GameClearResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경

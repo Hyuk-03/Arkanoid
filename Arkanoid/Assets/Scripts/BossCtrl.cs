@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.TestTools;
 
 enum BossState
 {
     Idle,
     Attack,
-    Die
 }
 public class BossCtrl : MonoBehaviour
 {
@@ -16,8 +17,18 @@ public class BossCtrl : MonoBehaviour
     float AttackTimer;   //보스의 공격타이머
     float AttackInterval = 2.0f;  //보스의 공격간격
 
+    
     Animator BossAnim;  //보스의 애니메이션
     BossState m_BossState = BossState.Idle;  // 보스의 상태
+
+    //보스이동
+    public float MoveSpeed = 2.0f;  // 이동 속도
+    public float LeftLimit = -3.4f;  // 왼쪽 이동 제한
+    public float RightLimit = 3.4f;  // 오른쪽 이동 제한
+    private Vector3 Pos = Vector3.right;  // 초기 이동 방향
+    private float StopTimer = 0f;  // 정지 타이머
+    private bool isStop = false;  // 멈춤 상태 여부
+    //보스이동
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +41,6 @@ public class BossCtrl : MonoBehaviour
 
         BossAnim = GetComponent<Animator>();
         AttackTimer = AttackInterval; // 초기 타이머 설정
-       
     }
 
     // Update is called once per frame
@@ -41,6 +51,39 @@ public class BossCtrl : MonoBehaviour
         if (m_BossState == BossState.Idle && AttackTimer <= 0)
         {
             Attack();
+        }
+
+        if (isStop==false)
+        {
+            Move(); // 보스를 이동시키는 함수 호출
+        }
+        else
+        {
+            StopTimer -= Time.deltaTime; // 정지 타이머 감소
+            if (StopTimer <= 0)
+            {
+                isStop = false; // 멈춤 상태 해제
+            }
+        }
+    }
+
+    void Move()
+    {
+        // 현재 위치에 이동 방향과 속도를 곱한 값을 더함
+        transform.position += Pos * MoveSpeed * Time.deltaTime;
+
+        // 이동 범위 검사
+        if (transform.position.x >= RightLimit)
+        {
+            isStop = true; // 멈춤 상태로 전환
+            StopTimer = 2.0f; // 2초 정지 타이머 설정
+            Pos = Vector3.left; // 방향 변경
+        }
+        else if (transform.position.x <= LeftLimit)
+        {
+            isStop = true; // 멈춤 상태로 전환
+            StopTimer = 2.0f; // 2초 정지 타이머 설정
+            Pos = Vector3.right; // 방향 변경
         }
     }
 
@@ -55,8 +98,7 @@ public class BossCtrl : MonoBehaviour
 
         if (Hp == 0)  // hp가 0일 때만 블록 삭제
         {
-            GameMgr.Inst.BossDie();
-            GameMgr.Inst.AddScore(ScoreValue);  //점수획득
+            GameMgr.Inst.BossDie(ScoreValue);
             Destroy(gameObject);
         }
     }
