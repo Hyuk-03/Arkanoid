@@ -17,7 +17,7 @@ public class GameMgr : MonoBehaviour
     //목숨
 
     //아이템
-    public GameObject ItemPrefab;
+    public GameObject ItemPrefab;       //아이템 프리팹
     //아이템
 
     [Header("게임오버")]
@@ -67,7 +67,7 @@ public class GameMgr : MonoBehaviour
             //게임클리어상태일때 스페이스파 입력
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("LobbyScene");  //다시 씬을 재시작하여 보스로 가게끔
+                SceneManager.LoadScene("LobbyScene");  //로비로
             }
         }
 
@@ -79,7 +79,7 @@ public class GameMgr : MonoBehaviour
 
     public void AddScore(int a_Value)
     {
-        Score += a_Value;
+        Score += a_Value;                           //스코어값
         ScoreText.text = "Score" + "\n" + Score;    //스코어를 밑에 표기하고싶어서
     }
 
@@ -99,7 +99,7 @@ public class GameMgr : MonoBehaviour
         if (CurLife > -1)
         {
             CurLife--;                //깍는다
-            UpdateLifeUI();
+            UpdateLifeUI();           //업데이트
             BallCtrl ballCtrl = FindObjectOfType<BallCtrl>();
             if (ballCtrl != null)
             {
@@ -138,8 +138,8 @@ public class GameMgr : MonoBehaviour
         BallCtrl a_BallCtrl = FindObjectOfType<BallCtrl>();
         if (a_BallCtrl != null)
         {
-            a_BallCtrl.isBall = false;
-            a_BallCtrl.BallTimer = 2.5f;
+            a_BallCtrl.isBall = false;          //공이 패들에 떨어졌나 여부 돌리기
+            a_BallCtrl.BallTimer = 2.5f;        //공의 시간
         }
 
         // 카메라 흔들림 효과 호출
@@ -150,7 +150,7 @@ public class GameMgr : MonoBehaviour
         BossGenerator a_BossGenerator = FindObjectOfType<BossGenerator>();
         if (a_BossGenerator != null)
         {
-            a_BossGenerator.BossSpawn(new Vector2(0.5f, 1.7f));
+            a_BossGenerator.BossSpawn(new Vector2(0.5f, 1.7f));             //보스의 스폰위치
         }
     }
 
@@ -164,32 +164,32 @@ public class GameMgr : MonoBehaviour
 
     public void BossDie(int ScoreValue)
     {
-        isBossClear = true;
-        AddScore(ScoreValue);
+        isBossClear = true;             //보스클리어 체크 여부
+        AddScore(ScoreValue);           //보스의 스코어
         CheckGameClear(); // 게임 클리어 체크
     }
 
     void ClearPanel()
     {
-        isGameClear = true;
+        isGameClear = true;                                 //게임클리어체크 여부 
         GameClearPanel.gameObject.SetActive(true);       //킨다
         GameClearResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
-        BlinkAnim m_BlinkAnim = gameObject.GetComponent<BlinkAnim>();
+        BlinkAnim m_BlinkAnim = gameObject.GetComponent<BlinkAnim>();       //가져온다
         if (m_BlinkAnim != null)
         {
-            m_BlinkAnim.enabled = true;
+            m_BlinkAnim.enabled = true;             //블링크 스크립트를 가능하게 한다 
         }
     }
 
     void GameOver()
     {
-        isGameOver = true;
+        isGameOver = true;                                //게임오버체크 여부
         GameOverPanel.gameObject.SetActive(true);         //킨다.
         GameOverResultText.text = "<color=#FF0000>" + Score.ToString() + "</color>";  //컬러변경
-        BlinkAnim m_BlinkAnim = gameObject.GetComponent<BlinkAnim>();
+        BlinkAnim m_BlinkAnim = gameObject.GetComponent<BlinkAnim>();       //가져온다
         if (m_BlinkAnim != null)
         {
-            m_BlinkAnim.enabled = true;
+            m_BlinkAnim.enabled = true;         //블링크 스크립트 가능하게 한다.
         }
     }
 

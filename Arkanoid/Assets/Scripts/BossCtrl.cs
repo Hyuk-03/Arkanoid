@@ -6,8 +6,8 @@ using UnityEngine.TestTools;
 
 enum BossState
 {
-    Idle,
-    Attack,
+    Idle,               //보스의 기본상태
+    Attack,             //보스의 공격상태
 }
 public class BossCtrl : MonoBehaviour
 {
@@ -30,6 +30,11 @@ public class BossCtrl : MonoBehaviour
     private bool isStop = false;  // 멈춤 상태 여부
     //보스이동
 
+    //보스 공격
+    public GameObject m_ShootPos;           //공격위치
+    public GameObject m_BossBall;           //보스의 공격볼
+    //보스공격
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,11 +51,11 @@ public class BossCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AttackTimer -= Time.deltaTime;
+        AttackTimer -= Time.deltaTime;          //시간값
 
         if (m_BossState == BossState.Idle && AttackTimer <= 0)
         {
-            Attack();
+            Attack();                                           //함수호출
         }
 
         if (isStop==false)
@@ -98,8 +103,8 @@ public class BossCtrl : MonoBehaviour
 
         if (Hp == 0)  // hp가 0일 때만 블록 삭제
         {
-            GameMgr.Inst.BossDie(ScoreValue);
-            Destroy(gameObject);
+            GameMgr.Inst.BossDie(ScoreValue);           //보스의 스코어 획득을 위해서
+            Destroy(gameObject);                        //삭제
         }
     }
     void Attack()
@@ -107,7 +112,7 @@ public class BossCtrl : MonoBehaviour
         m_BossState = BossState.Attack; // 상태를 Attack으로 변경
         BossAnim.SetBool("attack", true); // 어택 애니메이션 시작
         BossAnim.SetBool("nomal", false);  //노말상태가 아니다
-        StartCoroutine(AttackCoroutine());
+        StartCoroutine(AttackCoroutine());  //코루틴
     
     }
     IEnumerator AttackCoroutine()

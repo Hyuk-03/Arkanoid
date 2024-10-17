@@ -24,7 +24,6 @@ public class BallCtrl : MonoBehaviour
         MaxBallSpeed = 10.0f;             //맥스속도
         BallSpeed = 6.0f;                 //공의 처음 속도
         Paddle = GameObject.Find("Paddle");   //패들찾아옴
-       
     }
 
     // Update is called once per frame
@@ -94,7 +93,7 @@ public class BallCtrl : MonoBehaviour
             }
         }
 
-        else if (coll.gameObject.CompareTag("HardBlock")==true)
+        else if (coll.gameObject.CompareTag("HardBlock")==true)  //블럭과 동일
         {
             BlockCtrl blockCtrl = coll.gameObject.GetComponent<BlockCtrl>();
             if (blockCtrl != null)
@@ -106,7 +105,7 @@ public class BallCtrl : MonoBehaviour
                 DirBall = Out;
             }
         }
-        else if(coll.gameObject.CompareTag("Boss")==true)
+        else if(coll.gameObject.CompareTag("Boss")==true)       //블럭과 동일
         {
             BossCtrl bossCtrl = coll.gameObject.GetComponent<BossCtrl>();
             if (bossCtrl != null)
@@ -121,14 +120,19 @@ public class BallCtrl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if(coll.gameObject.CompareTag("Out")== true)
+        if(coll.gameObject.CompareTag("Out")== true)            //아웃되면
         {
             //패들연출
-            Paddle.GetComponent<PaddleCtrl>().StartBreak();
-            StartCoroutine(RePlay());
+            Paddle.GetComponent<PaddleCtrl>().StartBreak();  //패들컨트롤 코루틴
+            StartRePlay();                                  //코루틴시작
             //패들연출
-            GameMgr.Inst.LoseLife();
+            GameMgr.Inst.LoseLife();            //목숨줄어들기
         }
+    }
+
+    public void StartRePlay()
+    {
+        StartCoroutine(RePlay());      //코루틴시작
     }
 
     IEnumerator RePlay()

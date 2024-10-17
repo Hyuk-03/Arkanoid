@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -17,12 +18,14 @@ public class PaddleCtrl : MonoBehaviour
     Animator m_Anim;   //패들애니메이터
     //패들의 상태
 
+    GameObject Ball;                //볼
 
     // Start is called before the first frame update
     void Start()
     {
         PaddlePos = transform.position; //패들의 현재 위치를 변수에 
         m_Anim = GetComponent<Animator>();  //패들 애니메이터 찾아옴
+        Ball = GameObject.Find("Ball");     //볼을 찾아옴
     }
 
     
@@ -48,7 +51,7 @@ public class PaddleCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("Item"))
+        if (coll.gameObject.CompareTag("Item"))             //아이템
         {
             // 아이템을 먹었을 때 공의 속도를 재설정
             BallCtrl ballCtrl = FindObjectOfType<BallCtrl>();
@@ -59,19 +62,26 @@ public class PaddleCtrl : MonoBehaviour
 
             Destroy(coll.gameObject); // 아이템 삭제
         }
+        else if(coll.gameObject.CompareTag("BossBall"))     //보스의 공격
+        {
+            StartBreak();                                       //코루틴시작
+            Ball.GetComponent<BallCtrl>().StartRePlay();        //볼 컨트롤의 코루틴시작
+            Destroy(coll.gameObject);                           //삭제
+            GameMgr.Inst.LoseLife();                              //목숨
+        }
     }
 
     public void StartBreak()
     {
-        StartCoroutine(Break());
+        StartCoroutine(Break());                //코루틴시작
     }
 
     IEnumerator Break()
     {
-        isBreak = true;
+        isBreak = true;                     //브레이크 상태
         m_Anim.SetBool("Break", true);       //애니메이터의 break의 상태를 true로 변환 break 애니메이션 플레이
         yield return new WaitForSeconds(1.2f);  //1.2초 대기
         m_Anim.SetBool("Break", false);     //애니메이터의 break의 상태를 false로 변환 create 애니메이션 플레이
-        isBreak = false;
+        isBreak = false;                    //브레이크 아님
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossGenerator : MonoBehaviour
 {
-    public GameObject BossPrefab;
+    public GameObject BossPrefab;  //보스의 프리팹
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,6 @@ public class BossGenerator : MonoBehaviour
 
     public void BossSpawn(Vector2 SpawnPos)
     {
-        GameObject a_Boss = Instantiate(BossPrefab, SpawnPos, Quaternion.identity);
+        GameObject a_Boss = Instantiate(BossPrefab, SpawnPos, Quaternion.identity); //보스 소환
     }
 }
