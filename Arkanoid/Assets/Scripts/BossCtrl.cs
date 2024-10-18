@@ -113,11 +113,12 @@ public class BossCtrl : MonoBehaviour
         BossAnim.SetBool("attack", true); // 어택 애니메이션 시작
         BossAnim.SetBool("nomal", false);  //노말상태가 아니다
         StartCoroutine(AttackCoroutine());  //코루틴
-    
     }
     IEnumerator AttackCoroutine()
     {
-        yield return new WaitForSeconds(1.0f); // 애니메이션의 길이에 맞게 조정
+        yield return new WaitForSeconds(1.35f); // 애니메이션의 길이에 맞게 조정
+
+        Instantiate(m_BossBall, m_ShootPos.transform.position, Quaternion.identity);
 
         EndAttack(); // 공격이 끝난 후 Idle 상태로 돌아감
         AttackTimer = AttackInterval; // 타이머 리셋
