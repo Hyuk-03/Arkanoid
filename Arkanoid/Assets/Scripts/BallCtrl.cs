@@ -67,6 +67,10 @@ public class BallCtrl : MonoBehaviour
         }
         else if (coll.gameObject.CompareTag("Paddle") == true)
         {
+            PaddleCtrl paddleCtrl = Paddle.GetComponent<PaddleCtrl>();
+            if (paddleCtrl != null && paddleCtrl.isBreak)
+                return; 
+
             float HitPoint = coll.contacts[0].point.x;             //패들의 x 부딪히면 생성되는 백터값
             float PaddleCenter = coll.transform.position.x;         //패들 중앙 x 좌표
             float Angle = (HitPoint - PaddleCenter) * 2;            //빼고 곱한다
@@ -122,6 +126,10 @@ public class BallCtrl : MonoBehaviour
     {
         if(coll.gameObject.CompareTag("Out")== true)            //아웃되면
         {
+            PaddleCtrl paddleCtrl = Paddle.GetComponent<PaddleCtrl>();
+            if (paddleCtrl != null && paddleCtrl.isBreak)
+                return; 
+
             //패들연출
             Paddle.GetComponent<PaddleCtrl>().StartBreak();  //패들컨트롤 코루틴
             StartRePlay();                                  //코루틴시작

@@ -12,9 +12,8 @@ public class PaddleCtrl : MonoBehaviour
     Vector3 PaddlePos = Vector3.zero;  //패들의 변수
     //패들의 이동
 
-
     //패들의 상태
-    bool isBreak;   //부서진 상태
+    public bool isBreak;   //부서진 상태
     Animator m_Anim;   //패들애니메이터
     //패들의 상태
 
@@ -35,6 +34,10 @@ public class PaddleCtrl : MonoBehaviour
         if (isBreak)     //패들이 부숴진상태라면 리턴
             return;
 
+        if (GameMgr.Inst.isGameClear || GameMgr.Inst.isGameOver == true)  //클리어나 오버가 되었을때 패들의 움직임을 멈추기 위해
+            return;
+
+
         h = Input.GetAxisRaw("Horizontal");   //유니티에 저장된 키 입력값 
         if (h != 0.0f)
         {
@@ -51,6 +54,9 @@ public class PaddleCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        if (isBreak)
+            return;
+
         if (coll.gameObject.CompareTag("Item"))             //아이템
         {
             // 아이템을 먹었을 때 공의 속도를 재설정
@@ -64,6 +70,9 @@ public class PaddleCtrl : MonoBehaviour
         }
         else if(coll.gameObject.CompareTag("BossBall"))     //보스의 공격
         {
+            if (isBreak)
+                return;
+
             StartBreak();                                       //코루틴시작
             Ball.GetComponent<BallCtrl>().StartRePlay();        //볼 컨트롤의 코루틴시작
             Destroy(coll.gameObject);                           //삭제

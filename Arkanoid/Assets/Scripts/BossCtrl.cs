@@ -26,8 +26,8 @@ public class BossCtrl : MonoBehaviour
     public float LeftLimit = -3.4f;  // 왼쪽 이동 제한
     public float RightLimit = 3.4f;  // 오른쪽 이동 제한
     private Vector3 Pos = Vector3.right;  // 초기 이동 방향
-    private float StopTimer = 0f;  // 정지 타이머
-    private bool isStop = false;  // 멈춤 상태 여부
+    float StopTimer = 0f;  // 정지 타이머
+    bool isStop = false;  // 멈춤 상태 여부
     //보스이동
 
     //보스 공격
@@ -51,6 +51,9 @@ public class BossCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameMgr.Inst.isGameOver == true)   //게임오버가 된다면 보스의 공격,이동을 막기위해
+            return;
+
         AttackTimer -= Time.deltaTime;          //시간값
 
         if (m_BossState == BossState.Idle && AttackTimer <= 0)
@@ -82,7 +85,7 @@ public class BossCtrl : MonoBehaviour
         {
             isStop = true; // 멈춤 상태로 전환
             StopTimer = 2.0f; // 2초 정지 타이머 설정
-            Pos = Vector3.left; // 방향 변경
+            Pos = Vector3.left; // 방향 변경 
         }
         else if (transform.position.x <= LeftLimit)
         {

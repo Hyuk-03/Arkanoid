@@ -30,7 +30,7 @@ public class GameMgr : MonoBehaviour
     public Text GameClearResultText;    //게임클리어결과
     private int TotalBlocks;          // 총 블록 수
     public bool isGameClear = false;   //게임클리어체크하기 위한
-    bool isBossClear = false;
+    bool isBossClear = false;           //보스 클리어 여부
 
     //싱글톤
     public static GameMgr Inst = null;
@@ -192,5 +192,4 @@ public class GameMgr : MonoBehaviour
             m_BlinkAnim.enabled = true;         //블링크 스크립트 가능하게 한다.
         }
     }
-
 }
