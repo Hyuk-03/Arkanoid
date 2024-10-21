@@ -54,7 +54,7 @@ public class PaddleCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (isBreak)
+        if (isBreak==true)                    //부숴진 상태라면 리턴
             return;
 
         if (coll.gameObject.CompareTag("Item"))             //아이템
@@ -70,7 +70,7 @@ public class PaddleCtrl : MonoBehaviour
         }
         else if(coll.gameObject.CompareTag("BossBall"))     //보스의 공격
         {
-            if (isBreak)
+            if (isBreak==true)               //부숴진 상태라면 리턴
                 return;
 
             StartBreak();                                       //코루틴시작

@@ -68,7 +68,7 @@ public class BallCtrl : MonoBehaviour
         else if (coll.gameObject.CompareTag("Paddle") == true)
         {
             PaddleCtrl paddleCtrl = Paddle.GetComponent<PaddleCtrl>();
-            if (paddleCtrl != null && paddleCtrl.isBreak)
+            if (paddleCtrl != null && paddleCtrl.isBreak)                    //브레이크상태라면 리턴
                 return; 
 
             float HitPoint = coll.contacts[0].point.x;             //패들의 x 부딪히면 생성되는 백터값
@@ -127,7 +127,7 @@ public class BallCtrl : MonoBehaviour
         if(coll.gameObject.CompareTag("Out")== true)            //아웃되면
         {
             PaddleCtrl paddleCtrl = Paddle.GetComponent<PaddleCtrl>();
-            if (paddleCtrl != null && paddleCtrl.isBreak)
+            if (paddleCtrl != null && paddleCtrl.isBreak)                   //브레이크상태라면 리턴
                 return; 
 
             //패들연출
